@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Header.scss'
+import './style.scss'
 
 function MenuItem({title,subTitle}) {
     return (

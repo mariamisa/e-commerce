@@ -1,7 +1,7 @@
 import React from "react";
 
-import Layout from "./components/Layout/Layout.jsx";
-import LandingPage from "./pages/Landing/Landing.jsx";
+import Layout from "./components/Layout";
+import LandingPage from "./container/Landing";
 
 import "./App.css";
 
