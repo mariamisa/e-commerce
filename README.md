@@ -46,3 +46,7 @@ when get the first match its stop render.
 
 * location :tell us where we are currently
 
+
+### high order component(function that take component as arg and return another modified component)
+example (take a menu component as arg and return this component with the 3 props (match history ... ))
+

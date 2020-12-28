@@ -15,8 +15,8 @@ function App() {
     <Layout>
       <Switch>
         <Route exact path='/' component={LandingPage} />
-        <Route exact path='/another' component={Another} />
       </Switch>
+        <Route exact path='/hats' component={Another} />
     </Layout>
   );
 }
