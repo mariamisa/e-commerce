@@ -27,4 +27,22 @@ example:class style inside class style block
 }
 ```
 
+### Routing
+* react ui library we want to use library to make routing
+
+* ``` npm install react-router-dom ```
+* Route => get 3 props
+1. exact mean that the path completely match (true/false) value
+2. path => the page path
+2. component =>what must be render when its match
+* with exact every route will render because all of these contains '/
+* Switch => render one component
+when get the first match its stop render.
+* any component get render by a Route get passed 3 props(history,location,match(contain paramsUrl and url))
+
+* we have to way to navigate between pages 
+    1. ```  Link ``` component (tell the app what to re render) 
+    2. using history ``` props.history.push('/') ```
+
+* location :tell us where we are currently
 
