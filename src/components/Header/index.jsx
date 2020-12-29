@@ -1,29 +1,21 @@
-import React,{Component} from 'react'
+import React from 'react'
+import {Link} from 'react-router-dom'
 
-import sectionsData from './sectionsData';
-import MenuItem from './MenuItem';
+import {ReactComponent as Logo} from '../../assets/crown.svg.svg'
 
-import './style.scss'
+import './style.scss';
 
-
-export default class Header extends Component {
-    state={
-        sections:sectionsData
-    }
-
-    render() {
-        const {sections}=this.state;
-
-        return (
-            <div className='homepage'>
-                <div className='directory-menu'>
-                    {sections.map(({id,...otherSectionProps})=>(
-                    <MenuItem 
-                        key={id}
-                        {...otherSectionProps}
-                     />))}
-                </div>
+export default function Header() {
+    return (
+        <div className="header">
+            <Link className="logo-container" to="/">
+                <Logo/>
+            </Link>
+            <div className="options">
+                <Link className="option" to="/shop">SHOP</Link>
+                <Link className="option" to="/shop">CONTACT</Link>
             </div>
-        )
-    }
+
+        </div>
+    )
 }

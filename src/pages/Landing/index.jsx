@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Header from '../../components/Header/index'
+import Directory from '../../components/Directory/index'
 
 export default function Landing() {
     return (
-            <Header />
+            <Directory />
         
     )
 }
