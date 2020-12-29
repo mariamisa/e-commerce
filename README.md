@@ -26,6 +26,7 @@ example:class style inside class style block
 
 }
 ```
+* ``` @mixin @include ``` re usable use css code
 
 ### Routing
 * react ui library we want to use library to make routing
