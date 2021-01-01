@@ -5,7 +5,7 @@ import './style.scss'
 export default function FormHeader({title,subTitle}) {
     return (
         <div>
-            <h2 styleName="title">{title}</h2>
+            <h2 className="title">{title}</h2>
             <span>{subTitle}</span>
         </div>
     )

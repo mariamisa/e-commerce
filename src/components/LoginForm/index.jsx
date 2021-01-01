@@ -4,6 +4,8 @@ import FormInput from '../FormInput';
 import FormHeader from '../FormHeader';
 import Button from '../Button'
 
+import {signInWithGoogle} from '../../firebase/firebase.utils'
+
 import './style.scss'
 
 export default class LoginForm extends Component {
@@ -45,6 +47,7 @@ export default class LoginForm extends Component {
                     required
                     />
                    <Button type="submit">sign in</Button>
+                   <Button onClick={signInWithGoogle}>sign in with google</Button>
                 </form>
             </div>
         )

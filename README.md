@@ -53,4 +53,4 @@ example (take a menu component as arg and return this component with the 3 props
 
 -----------------------------
 ### Firebase
-
+* we don't have to write back-end code firebase provide for us(server,database,Authentication)
