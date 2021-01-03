@@ -54,3 +54,16 @@ example (take a menu component as arg and return this component with the 3 props
 -----------------------------
 ### Firebase
 * we don't have to write back-end code firebase provide for us(server,database,Authentication)
+
+* how firebase store works
+collection (table)
+document(rows)
+```javascript
+
+const firestore=firebase.firestore();
+1. firestore.collection('users').doc('id00000') // to get collection data
+2. firestore.doc('/users/id00000') //as fetch date
+3. firestore.collection('/users') //as fetch date get the table
+```
+
+* we want to store user on auth (every user login we will store)
