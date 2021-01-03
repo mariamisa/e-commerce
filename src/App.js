@@ -33,8 +33,8 @@ export default class App extends Component {
         <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/signin" component={SignInAndSignUp} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/signin" component={SignInAndSignUp} />
         </Switch>
       </div>
     );

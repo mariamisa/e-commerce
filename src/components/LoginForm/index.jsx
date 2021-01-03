@@ -46,8 +46,10 @@ export default class LoginForm extends Component {
                     value={password}
                     required
                     />
-                   <Button type="submit">sign in</Button>
-                   <Button onClick={signInWithGoogle}>sign in with google</Button>
+                    <div className='buttons'>
+                    <Button type="submit">sign in</Button>
+                    <Button onClick={signInWithGoogle} isGoogleSignIn>sign in with google</Button>
+                    </div>
                 </form>
             </div>
         )
