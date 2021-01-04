@@ -67,3 +67,6 @@ const firestore=firebase.firestore();
 ```
 
 * we want to store user on auth (every user login we will store)
+1. create database on firebase
+2. on firebase.utils file make function that get the userData that passed to the function,check if uid exist or not
+3. if not exist will add to firebase

@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import ShopPage from "./pages/Shop";
 import SignInAndSignUp from "./pages/signin";
 
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import "./App.css";
 
@@ -18,9 +18,17 @@ export default class App extends Component {
 
   componentDidMount() {
     //any changed will tell us
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
-      console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userRef = await createUserProfileDocument(user);
+        userRef.onSnapshot(snapShot=>{
+          this.setState({ currentUser: {
+            id:snapShot.id,
+            ...snapShot.data()
+          } });
+        })
+      }
+      this.setState({currentUser:user})
     });
   }
   componentWillUnmount() {
