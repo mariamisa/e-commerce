@@ -3,7 +3,6 @@ import React from 'react'
 import './style.scss'
 
 export default function FormInput({ handelChange,label,...otherProps}) {
-console.log(otherProps)   
     return (
         <div className="group">
             <input 

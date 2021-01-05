@@ -70,3 +70,4 @@ const firestore=firebase.firestore();
 1. create database on firebase
 2. on firebase.utils file make function that get the userData that passed to the function,check if uid exist or not
 3. if not exist will add to firebase
+4. to make sign up we want to enable email/password on firebase

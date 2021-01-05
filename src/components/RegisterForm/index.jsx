@@ -4,23 +4,43 @@ import FormInput from '../FormInput';
 import FormHeader from '../FormHeader';
 import Button from '../Button'
 
+import {auth,createUserProfileDocument} from '../../firebase/firebase.utils'
 import './style.scss'
 
 export default class RegisterForm extends Component {
     state={
         email:"",
         password:"",
-        userName:""
+        confirmPassword:"",
+        displayName:""
     }
-    handelSubmit=(e)=>{
+    handelSubmit=async(e)=>{
         e.preventDefault();
-        this.setState({email:"",password:""})
+        const {displayName,password,email,confirmPassword}=this.state;
+        if(password!==confirmPassword){
+           alert('password not match') 
+           return
+        }
+        try{
+            const {user} =await auth.createUserWithEmailAndPassword(email,password)
+            createUserProfileDocument(user,{displayName});
+            this.setState({
+                displayName:'',
+                password:'',
+                confirmPassword:'',
+                email:''
+            })
+
+        }catch(e){
+            console.log('error')
+        }
+
     }
     handelChange=({target:{name,value}})=>{
         this.setState({[name]:value})
     }
     render(){
-        const {email,password,userName}=this.state;
+        const {email,password,confirmPassword,displayName}=this.state;
         return (
             <div className="sign-up">
                 <FormHeader
@@ -28,6 +48,14 @@ export default class RegisterForm extends Component {
                 subTitle="Sign up with your email and password"
                 />
                 <form onSubmit={this.handelSubmit}>
+                    <FormInput
+                    type="text" 
+                    label="userName"
+                    handelChange={this.handelChange}
+                    name="displayName"
+                    value={displayName}
+                    required
+                    />
                     <FormInput
                     type="email" 
                     label="Email"
@@ -46,14 +74,15 @@ export default class RegisterForm extends Component {
                     required
                     />
                     <FormInput
-                    type="text" 
-                    label="userName"
+                    type="password" 
+                    label="Confirm Password"
                     handelChange={this.handelChange}
-                    name="userName"
-                    value={userName}
+                    name="confirmPassword"
+                    value={confirmPassword}
                     required
                     />
-                   <Button type="submit">sign up</Button>
+                   
+                   <Button type="submit">SIGN UP</Button>
                 </form>
             </div>
         )
