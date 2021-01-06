@@ -4,7 +4,7 @@ import FormInput from '../FormInput';
 import FormHeader from '../FormHeader';
 import Button from '../Button'
 
-import {signInWithGoogle} from '../../firebase/firebase.utils'
+import {signInWithGoogle,auth} from '../../firebase/firebase.utils'
 
 import './style.scss'
 
@@ -13,9 +13,15 @@ export default class LoginForm extends Component {
         email:"",
         password:"",
     }
-    handelSubmit=(e)=>{
+    handelSubmit=async(e)=>{
         e.preventDefault();
-        this.setState({email:"",password:""})
+        const {email,password} =this.state;
+        try{
+            await auth.signInWithEmailAndPassword(email,password)
+            this.setState({email:"",password:""})
+        }catch(e){
+            alert(e.message)
+        }
     }
     handelChange=({target:{name,value}})=>{
         this.setState({[name]:value})

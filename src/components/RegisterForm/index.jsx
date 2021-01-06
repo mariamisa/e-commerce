@@ -32,7 +32,7 @@ export default class RegisterForm extends Component {
             })
 
         }catch(e){
-            console.log('error')
+            alert(e.message)
         }
 
     }
