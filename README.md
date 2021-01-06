@@ -71,3 +71,32 @@ const firestore=firebase.firestore();
 2. on firebase.utils file make function that get the userData that passed to the function,check if uid exist or not
 3. if not exist will add to firebase
 4. to make sign up we want to enable email/password on firebase
+
+
+### Redux
+* redux/library to make react state more scalable and easier
+* state management
+* one object describe the entire app and pass as props to component need it
+
+* why use redux?
+1. good manage large state
+2. sharing data between component
+3. predictable state management using the 3 principles
+    1. single source of truth(one state describe all app)
+    2. state is read only(not modify the object create new one after any action 'immutable')
+    3. change using pure function(get input return the same output)
+
+
+* redux flow
+1. Action => when user click or make interaction ,will call reducer
+2. Root Reducer => pure function receive action(click) create output (store/state)
+3. Store => is state app (object) will get updated by reducer
+3. DOM changed =>re render after change the state
+
+* MVC 
+action => controller => model => view
+click=> reducer decide what change=>store changed => dom render
+
+```
+redux dosent replace this.state ,we keep only important state on redux store and keep this.state inside specific ui like form input
+ ```
