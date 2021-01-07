@@ -91,7 +91,7 @@ const firestore=firebase.firestore();
 1. Action => when user click or make interaction ,will call reducer
 2. Root Reducer => pure function receive action(click) create output (store/state)
 3. Store => is state app (object) will get updated by reducer
-3. DOM changed =>re render after change the state
+4. DOM changed =>re render after change the state
 
 * MVC 
 action => controller => model => view
@@ -100,3 +100,11 @@ click=> reducer decide what change=>store changed => dom render
 ```
 redux dosent replace this.state ,we keep only important state on redux store and keep this.state inside specific ui like form input
  ```
+
+the problem is drillings props
+
+* how reducer work?!!
+action(type,payload) => update user reducer with payload => user Reducer will update just user object (will not touch anything else) => pass new user value as props to the component reducer work as ``` this.setState ``` work.
+
+* reducer function
+its a function take state(prev state before update) and action,and return an object that is a new object(state) because we want to re render if we return the same object and assigning the new value the component will not re render
