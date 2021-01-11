@@ -112,3 +112,7 @@ its a function take state(prev state before update) and action,and return an obj
 * setup redux
 action => middleware=>reducer => update store =>dom changed
 ``` middleware is a peace of code that get the action before reducer ```
+
+* Provider(store object) component on react-redux / we warp the entire application with it to make sure that all app access to it.
+
+* root-reducer / actual code that companies all state together
