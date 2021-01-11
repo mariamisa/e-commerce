@@ -108,3 +108,7 @@ action(type,payload) => update user reducer with payload => user Reducer will up
 
 * reducer function
 its a function take state(prev state before update) and action,and return an object that is a new object(state) because we want to re render if we return the same object and assigning the new value the component will not re render
+
+* setup redux
+action => middleware=>reducer => update store =>dom changed
+``` middleware is a peace of code that get the action before reducer ```
