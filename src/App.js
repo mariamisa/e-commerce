@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
 import LandingPage from "./pages/Landing";
 import Header from "./components/Header";
@@ -7,28 +8,27 @@ import ShopPage from "./pages/Shop";
 import SignInAndSignUp from "./pages/signin";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { setCurrentUser } from "./redux/user/user.action";
 
 import "./App.css";
 
-export default class App extends Component {
-  state = {
-    currentUser: null,
-  };
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    //any changed will tell us
+ class App extends Component {
+   unsubscribeFromAuth = null;
+   
+   componentDidMount() {
+     //any changed will tell us
+    const {setCurrentUser} =this.props
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef.onSnapshot(snapShot=>{
-          this.setState({ currentUser: {
+          setCurrentUser({
             id:snapShot.id,
             ...snapShot.data()
-          } });
+          });
         })
       }
-      this.setState({currentUser:user})
+      setCurrentUser(user)
     });
   }
   componentWillUnmount() {
@@ -48,3 +48,7 @@ export default class App extends Component {
     );
   }
 }
+const mapDispatchToProps=dispatch=>({
+  setCurrentUser:user=>dispatch(setCurrentUser(user))
+})
+export default connect(null,mapDispatchToProps)(App)
